@@ -37,11 +37,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 | 화~금요일 | 전날 자료 |
 
 ### 실행 흐름
-1. arXiv API에서 quant-ph 논문 200편 수집
-2. 우선순위 키워드로 필터링
+1. **WebFetch 도구**로 arXiv API에서 quant-ph 논문 수집 (curl/wget/Python urllib 사용 금지 — 원격 실행 환경에서 차단됨)
+   - URL: `https://export.arxiv.org/api/query?search_query=cat:quant-ph&start=0&max_results=200&sortBy=submittedDate&sortOrder=descending`
+   - 수집 실패 시 URL 변형 시도: `https://arxiv.org/search/?query=quant-ph&searchtype=all&start=0`
+2. 우선순위 키워드로 필터링: Quantum Communication, QKD, Entanglement Distribution, Quantum Network, Quantum Teleportation
 3. Top 5 심층 분석 + 추가 20편 이상 요약
 4. `YYYY-MM-DD_Quantum_Research_Report.md` 생성
 5. `git commit -m "research trend analysis"` 후 push
+
+> **중요**: Bash 기반 네트워크 명령(curl, wget, Python urllib)은 원격 스케줄 실행 환경에서 차단됩니다. 반드시 Claude Code의 **WebFetch 도구**를 사용하여 arXiv API에 접근하세요.
 
 ## 현재 상태
 
