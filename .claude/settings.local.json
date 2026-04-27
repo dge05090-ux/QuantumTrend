@@ -1,7 +1,26 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:export.arxiv.org)"
+      "WebFetch(domain:export.arxiv.org)",
+      "Bash(git push *)",
+      "Skill(update-config)",
+      "Bash(git log *)",
+      "Write(~/.claude/projects/*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PROJ='/c/Users/Taewon/Documents/Academic Research Materials/Coading/QuantumTrend'; MEM='/c/Users/Taewon/.claude/projects/C--Users-Taewon-Documents-Academic-Research-Materials-Coading-QuantumTrend/memory'; cd \"$PROJ\" && LATEST=$(git log -1 --format='%H' 2>/dev/null); SAVED=$(cat \"$MEM/.last_commit\" 2>/dev/null); [ -n \"$LATEST\" ] && [ \"$LATEST\" != \"$SAVED\" ] && exit 2 || exit 0",
+            "asyncRewake": true,
+            "rewakeMessage": "새로운 git 커밋이 감지되었습니다. memory/project_status.md를 현재 상태로 업데이트하고, 완료 후 반드시 아래 명령을 실행해 체크포인트를 저장하세요: git -C \"/c/Users/Taewon/Documents/Academic Research Materials/Coading/QuantumTrend\" log -1 --format='%H' > \"/c/Users/Taewon/.claude/projects/C--Users-Taewon-Documents-Academic-Research-Materials-Coading-QuantumTrend/memory/.last_commit\"",
+            "statusMessage": "변경 사항 감지 중..."
+          }
+        ]
+      }
     ]
   }
 }

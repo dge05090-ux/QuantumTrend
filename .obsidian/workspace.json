@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-04-18_Quantum_Research_Report.md",
+                "file": "2026-04-20_Quantum_Research_Report.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-18_Quantum_Research_Report"
+              "title": "2026-04-20_Quantum_Research_Report"
             }
           }
         ]
@@ -184,5 +184,9 @@
     }
   },
   "active": "52c1c96d90582a6f",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "2026-04-24_Quantum_Research_Report.md",
+    "2026-04-23_Quantum_Research_Report.md",
+    "2026-04-18_Quantum_Research_Report.md"
+  ]
 }
